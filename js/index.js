@@ -1,37 +1,40 @@
 "use strict";
 function getRecomendations(Rating = 0) {
-  switch (Number(Rating)) {
-    case 1:
-      alert("Awful");
-      break;
-    case 2:
-      alert("Badly");
-      break;
-    case 3:
-      alert("How they made that?");
-      break;
-    case 4:
-      alert("Wasted time");
-      break;
-    case 5:
-      alert("If you haven\'t other variants");
-      break;
-    case 6:
-      alert("Not bad");
-      break;
-    case 7:
-      alert("Good film");
-      break;
-    case 8:
-      alert("The best film");
-      break;
-    case 9:
-      alert("Awesome");
-      break;
-    case 10:
-      alert("Masterpiece");
-      break;
+  switch (Math.round(Number(Rating))) {
+    case 0: {
+      return "You need to specify rating";
+    }
+    case 1: {
+      return "Awful";
+    }
+    case 2: {
+      return "Badly";
+    }
+    case 3: {
+      return "How they made that?";
+    }
+    case 4: {
+      return "Wasted time";
+     }
+    case 5: {
+      return "If you haven\'t other variants";
+    }
+    case 6: {
+      return "Not bad";
+    }
+    case 7: {
+      return "Good film";
+    }
+    case 8: {
+      return "The best film";
+    }
+    case 9: {
+      return "Awesome";
+    }
+    case 10: {
+      return "Masterpiece";
+    }
     default:
-      alert("You need to specify rating");
+      return "You need to specify rating from 1 to 10";
   }
 }
