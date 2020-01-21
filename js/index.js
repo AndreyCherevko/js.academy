@@ -71,14 +71,15 @@ function transformString(str) {
     return undefined;
   }
 
-  let result = str[0];
-  let indexOfLastSpace = str.lastIndexOf(" ");
+  let currentStr = str.trim();
+  let result = currentStr[0];
+  let indexOfLastSpace = currentStr.lastIndexOf(" ");
 
-  for (let i = 1; i < str.length; i++) {
+  for (let i = 1; i < currentStr.length; i++) {
     let nextWord =
       indexOfLastSpace != -1 && indexOfLastSpace < i
-        ? str[i].toUpperCase()
-        : str[i];
+        ? currentStr[i].toUpperCase()
+        : currentStr[i];
     result = result + "-" + nextWord;
   }
 
