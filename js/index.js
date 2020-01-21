@@ -52,7 +52,7 @@ function play(duration, song, repeatPeriod) {
   } else if (duration < repeatPeriod) {
     alert("Duration must be more then repeat period");
     return;
-  } else if (typeof song === "undefined" || song === null || song ===  "") {
+  } else if (typeof song != "string" || song === "") {
     alert("Need to specify song");
     return;
   }
@@ -63,4 +63,24 @@ function play(duration, song, repeatPeriod) {
       console.log(song);
     }
   }
+}
+
+function transformString(str) {
+  if (typeof str != "string" || str === "") {
+    alert("Need to specify string");
+    return undefined;
+  }
+
+  let result = str[0];
+  let indexOfLastSpace = str.lastIndexOf(" ");
+
+  for (let i = 1; i < str.length; i++) {
+    let nextWord =
+      indexOfLastSpace != -1 && indexOfLastSpace < i
+        ? str[i].toUpperCase()
+        : str[i];
+    result = result + "-" + nextWord;
+  }
+
+  return result;
 }
