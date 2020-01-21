@@ -52,12 +52,15 @@ function play(duration, song, repeatPeriod) {
   } else if (duration < repeatPeriod) {
     alert("Duration must be more then repeat period");
     return;
+  } else if (typeof song === "undefined" || song === null || song ===  "") {
+    alert("Need to specify song");
+    return;
   }
 
   for (let i = 1; i < duration; i++) {
-    if (i > repeatPeriod && i % repeatPeriod == 1) {
+    console.log(i);
+    if (i % repeatPeriod === 0) {
       console.log(song);
     }
-    console.log(i);
   }
 }
