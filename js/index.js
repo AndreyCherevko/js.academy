@@ -83,3 +83,61 @@ function transformString(str) {
 
   return result;
 }
+
+function makeCard(typeOfCard, firstName, secondName) {
+  if (typeof typeOfCard !== "string" || typeOfCard === "") {
+    alert("Need to specify type of card");
+    return;
+  } else if (typeof firstName !== "string" || firstName === "") {
+    alert("Need to specify first name of card holder");
+    return;
+  } else if (typeof secondName !== "string" || secondName === "") {
+    alert("Need to specify second name of card holder");
+    return;
+  }
+
+  let arrayOfAvailableYears = [30, 29, 38, 34];
+
+  let yearOfCurrentCard = arrayOfAvailableYears[getRandomInt(4)];
+  let monthOfCurrentCard = String(getRandomInt(12)).padStart(2, "0");
+  let CVVOfCurrentCard = String(getRandomInt(1000)).padStart(3, "0");
+
+  let result = {
+    type: typeOfCard,
+    name: firstName + " " + secondName,
+    expire: monthOfCurrentCard + "/" + yearOfCurrentCard,
+    cvv: CVVOfCurrentCard
+  };
+
+  return result;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function createFamily(wife, husband) {
+  if (typeof wife !== "string" || wife === "") {
+    alert("Need to specify wife");
+    return;
+  } else if (typeof husband !== "string" || husband === "") {
+    alert("Need to specify husband");
+    return;
+  }
+
+  let family = {
+    wife: wife,
+    husband: husband,
+    children: [],
+    makeChild: function(childName) {
+      if (typeof childName !== "string" || childName === "") {
+        alert("Need to specify children name");
+        return;
+      }
+
+      this.children.push(childName);
+    }
+  };
+
+  return family;
+}
