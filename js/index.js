@@ -76,11 +76,9 @@ function transformString(str) {
   let indexOfLastSpace = currentStr.lastIndexOf(" ");
 
   for (let i = 1; i < currentStr.length; i++) {
-    let nextWord =
-      indexOfLastSpace != -1 && indexOfLastSpace < i
-        ? currentStr[i].toUpperCase()
-        : currentStr[i];
-    result = result + "-" + nextWord;
+    let nextChart =
+      indexOfLastSpace < i ? currentStr[i].toUpperCase() : currentStr[i];
+    result = result + "-" + nextChart;
   }
 
   return result;
