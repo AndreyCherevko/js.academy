@@ -66,7 +66,7 @@ function play(duration, song, repeatPeriod) {
 }
 
 function transformString(str) {
-  if (typeof str != "string" || str === "") {
+  if (typeof str !== "string" || str === "") {
     alert("Need to specify string");
     return undefined;
   }
