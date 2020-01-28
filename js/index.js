@@ -135,7 +135,11 @@ function createFamily(wife, husband) {
         return;
       }
 
-      this.children.push(childName);
+      this.children.push({
+        name: childName,
+        parents: `${this.wife} and ${this.husband}`  
+      });
+
     }
   };
 
